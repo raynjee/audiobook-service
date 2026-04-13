@@ -161,28 +161,42 @@
 <script>
 function calculate() {
   let pages = document.getElementById("pages").value;
-  let hours = pages / 30;
+  
+  // Check if input is empty or not a number
+  if (!pages || pages <= 0) {
+    document.getElementById("result").innerHTML = "❌ Please enter a valid number of pages.";
+    return;
+  }
+  
+  pages = parseFloat(pages);
+  let hours = pages / 40;  // 40 pages = 1 hour
   let price = 0;
   let bonus = "";
 
-  if (hours <= 3) price = 3;
-  else if (hours <= 8) price = 6;
+  // Updated pricing tiers
+  if (hours <= 5) {
+    price = 3;  // 1–5 hours
+  }
+  else if (hours <= 8) {
+    price = 6;  // 6–8 hours
+  }
   else if (hours <= 15) {
-    price = 10;
-    bonus = " + 1 FREE ≤3hr audiobook";
+    price = 10;  // 9–15 hours
+    bonus = " + 1 FREE ≤3hr audiobook 🎁";
   }
   else if (hours <= 25) {
-    price = 15;
-    bonus = " + 1 ≤8hr OR 2 ≤3hr audiobooks";
+    price = 15;  // 16–25 hours
+    bonus = " + 1 ≤8hr OR 2 ≤3hr audiobooks 🎁";
   }
   else {
-    document.getElementById("result").innerHTML = "❌ Book too long (max 25 hrs)";
+    document.getElementById("result").innerHTML = "❌ Book too long (max 25 hrs / 1000 pages)";
     return;
   }
 
   document.getElementById("result").innerHTML =
-    "Estimated Hours: " + hours.toFixed(1) +
-    "<br>Price: $" + price + bonus;
+    "📖 Pages: " + pages +
+    "<br>⏱️ Estimated hours: " + hours.toFixed(1) +
+    "<br>💰 Price: $" + price + bonus;
 }
 </script>
 
