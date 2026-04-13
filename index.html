@@ -42,7 +42,127 @@
 
 <!-- HERO -->
 <section class="text-center py-12 px-4">
+  <!-- COMMON QUESTIONS (Left Side Layout) -->
+<section class="max-w-6xl mx-auto px-6 mb-16">
+  <h2 class="text-3xl font-bold mb-8 text-center text-white">💭 Common Questions</h2>
   
+  <div class="grid md:grid-cols-2 gap-6">
+    
+    <!-- LEFT COLUMN - Questions 1-4 -->
+    <div class="space-y-4">
+      
+      <!-- Question 1 -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <button onclick="toggleQuestion(1)" class="w-full text-left p-4 font-semibold text-white hover:bg-gray-700 transition flex justify-between items-center">
+          <span>❓ Why pay when I can do it myself?</span>
+          <span class="text-amber-400 text-xl" id="icon-1">+</span>
+        </button>
+        <div id="answer-1" class="hidden px-4 pb-4 text-gray-300 text-sm">
+          <p>You can't actually download the audio directly from the voice platform. I manually record each book. You're paying for my time and the convenience of a ready-to-use MP3. $3 is less than a coffee. ☕</p>
+        </div>
+      </div>
+      
+      <!-- Question 2 -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <button onclick="toggleQuestion(2)" class="w-full text-left p-4 font-semibold text-white hover:bg-gray-700 transition flex justify-between items-center">
+          <span>❓ Free TTS websites?</span>
+          <span class="text-amber-400 text-xl" id="icon-2">+</span>
+        </button>
+        <div id="answer-2" class="hidden px-4 pb-4 text-gray-300 text-sm">
+          <p>Free TTS sounds robotic and monotone. I use professional-grade AI voices that sound like real narrators. Try listening to a robot voice for hours vs. a human-like voice — huge difference.</p>
+        </div>
+      </div>
+      
+      <!-- Question 3 -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <button onclick="toggleQuestion(3)" class="w-full text-left p-4 font-semibold text-white hover:bg-gray-700 transition flex justify-between items-center">
+          <span>❓ What if quality is bad?</span>
+          <span class="text-amber-400 text-xl" id="icon-3">+</span>
+        </button>
+        <div id="answer-3" class="hidden px-4 pb-4 text-gray-300 text-sm">
+          <p>I test every file before sending. If there's any issue, I'll re-record for free. No questions asked. Your satisfaction matters — I'm a fellow reader, not a corporation.</p>
+        </div>
+      </div>
+      
+      <!-- Question 4 -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <button onclick="toggleQuestion(4)" class="w-full text-left p-4 font-semibold text-white hover:bg-gray-700 transition flex justify-between items-center">
+          <span>❓ Why is there a waitlist?</span>
+          <span class="text-amber-400 text-xl" id="icon-4">+</span>
+        </button>
+        <div id="answer-4" class="hidden px-4 pb-4 text-gray-300 text-sm">
+          <p>I'm one person doing this manually — I play and record each book in real time. A 10-hour book takes me 10+ hours. The waitlist ensures I don't get overwhelmed.</p>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- RIGHT COLUMN - Questions 5-8 -->
+    <div class="space-y-4">
+      
+      <!-- Question 5 -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <button onclick="toggleQuestion(5)" class="w-full text-left p-4 font-semibold text-white hover:bg-gray-700 transition flex justify-between items-center">
+          <span>❓ Don't like the voice?</span>
+          <span class="text-amber-400 text-xl" id="icon-5">+</span>
+        </button>
+        <div id="answer-5" class="hidden px-4 pb-4 text-gray-300 text-sm">
+          <p>Message me BEFORE ordering and I'll send a free 10-second custom demo with your preferred voice. Hear exactly what it sounds like before paying — no surprises.</p>
+        </div>
+      </div>
+      
+      <!-- Question 6 -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <button onclick="toggleQuestion(6)" class="w-full text-left p-4 font-semibold text-white hover:bg-gray-700 transition flex justify-between items-center">
+          <span>❓ Refund policy?</span>
+          <span class="text-amber-400 text-xl" id="icon-6">+</span>
+        </button>
+        <div id="answer-6" class="hidden px-4 pb-4 text-gray-300 text-sm">
+          <p>No refunds once I begin recording — because I've already put hours into your book. But if there's a technical issue, I'll re-record for free. Questions? Ask me first!</p>
+        </div>
+      </div>
+      
+      <!-- Question 7 -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <button onclick="toggleQuestion(7)" class="w-full text-left p-4 font-semibold text-white hover:bg-gray-700 transition flex justify-between items-center">
+          <span>❓ Do I own the MP3?</span>
+          <span class="text-amber-400 text-xl" id="icon-7">+</span>
+        </button>
+        <div id="answer-7" class="hidden px-4 pb-4 text-gray-300 text-sm">
+          <p>Yes! You get a private MP3 download link. Keep it on your phone, laptop, tablet, USB — anywhere. No subscriptions, no apps. It's yours forever.</p>
+        </div>
+      </div>
+      
+      <!-- Question 8 -->
+      <div class="bg-gray-800 rounded-xl overflow-hidden">
+        <button onclick="toggleQuestion(8)" class="w-full text-left p-4 font-semibold text-white hover:bg-gray-700 transition flex justify-between items-center">
+          <span>❓ Other languages?</span>
+          <span class="text-amber-400 text-xl" id="icon-8">+</span>
+        </button>
+        <div id="answer-8" class="hidden px-4 pb-4 text-gray-300 text-sm">
+          <p>Yes! Spanish, French, German, Japanese, Filipino/Tagalog, Hindi, and more. Just tell me which language you need when ordering.</p>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</section>
+
+<script>
+function toggleQuestion(id) {
+  const answer = document.getElementById(`answer-${id}`);
+  const icon = document.getElementById(`icon-${id}`);
+  
+  if (answer.classList.contains('hidden')) {
+    answer.classList.remove('hidden');
+    icon.textContent = '−';
+  } else {
+    answer.classList.add('hidden');
+    icon.textContent = '+';
+  }
+}
+</script>
   <!-- Personal disclaimer -->
   <div class="max-w-2xl mx-auto mb-8 bg-gray-800 border-l-4 border-amber-500 p-4 rounded-r-xl text-left">
     <p class="text-sm text-amber-400 font-medium mb-1">📖 A word from me:</p>
@@ -108,6 +228,10 @@
 </div>
 
 <!-- PRICING -->
+  <p class="text-xs text-amber-400 mt-2">
+  ⚡ These are introductory prices — limited time only
+</p>
+  
 <section class="text-center mb-16">
   <h2 class="text-3xl font-bold mb-8 text-white">Pricing</h2>
 
@@ -350,7 +474,20 @@
     Order Now
   </a>
 </section>
-
+<div class="flex flex-wrap justify-center gap-3 mt-6">
+  <div class="bg-gray-800 rounded-full px-4 py-2 text-xs text-gray-300 flex items-center gap-2">
+    <span>🔊</span> Hear sample first
+  </div>
+  <div class="bg-gray-800 rounded-full px-4 py-2 text-xs text-gray-300 flex items-center gap-2">
+    <span>🔄</span> Free re-record if issues
+  </div>
+  <div class="bg-gray-800 rounded-full px-4 py-2 text-xs text-gray-300 flex items-center gap-2">
+    <span>💬</span> Message me questions
+  </div>
+  <div class="bg-gray-800 rounded-full px-4 py-2 text-xs text-gray-300 flex items-center gap-2">
+    <span>📁</span> MP3 forever yours
+  </div>
+</div>
 <!-- FOOTER WITH REFUND POLICY -->
 <footer class="text-center text-gray-400 text-sm py-8 border-t border-gray-800 mt-16">
   
