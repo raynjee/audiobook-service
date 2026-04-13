@@ -67,21 +67,15 @@
   </div>
 </section>
 
-<!-- Reviews Display - Direct Embed of Your Published Sheet -->
-<section class="max-w-6xl mx-auto px-6 mb-16">
+<!-- Reviews Display - Beautiful Cards -->
+<section class="max-w-5xl mx-auto px-6 mb-16">
   <h3 class="text-xl font-bold text-white mb-6 text-center">📖 What People Are Saying</h3>
   
-  <div class="bg-gray-800 rounded-2xl p-4 overflow-hidden">
-    <iframe 
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSkiPB1Elc-t2CJXSwkAE59TgQ7-YxbDGMRmBDfz08Sp9uKT-pIDEzftsLfKUn9jolP9Jlg3v3W5_8M/pubhtml?gid=54124749&amp;single=true&amp;widget=true&amp;headers=false"
-      width="100%" 
-      height="600" 
-      frameborder="0" 
-      style="border-radius: 12px; background: #1f2937; border: none;">
-    </iframe>
+  <div id="reviews-container" class="grid md:grid-cols-2 gap-6">
+    <div class="text-center text-gray-400 col-span-2">⭐ Loading reviews...</div>
   </div>
   
-  <p class="text-center text-gray-500 text-xs mt-4">
+  <p class="text-center text-gray-500 text-xs mt-6">
     ⭐ All reviews are from real customers
   </p>
 </section>
@@ -101,6 +95,109 @@
     <a href="reviews.html" class="text-gray-500 hover:text-amber-400 transition">Reviews</a>
   </p>
 </footer>
+
+<script>
+// Your published sheet CSV link
+const sheetId = '2PACX-1vSkiPB1Elc-t2CJXSwkAE59TgQ7-YxbDGMRmBDfz08Sp9uKT-pIDEzftsLfKUn9jolP9Jlg3v3W5_8M';
+const csvUrl = `https://docs.google.com/spreadsheets/d/e/${sheetId}/pub?output=csv`;
+
+async function loadReviews() {
+  const container = document.getElementById('reviews-container');
+  
+  try {
+    console.log('Fetching reviews from:', csvUrl);
+    const response = await fetch(csvUrl);
+    const text = await response.text();
+    
+    console.log('Raw data:', text.substring(0, 500));
+    
+    // Parse CSV
+    const rows = text.split('\n');
+    if (rows.length < 2) {
+      container.innerHTML = '<div class="text-center text-gray-400 col-span-2">📭 No reviews yet. Be the first!</div>';
+      return;
+    }
+    
+    const reviews = [];
+    
+    // Skip header row (row 0)
+    for (let i = 1; i < rows.length; i++) {
+      if (rows[i] && rows[i].trim()) {
+        // Parse CSV respecting quotes
+        let row = rows[i];
+        let cols = [];
+        let inQuote = false;
+        let current = '';
+        
+        for (let c of row) {
+          if (c === '"') {
+            inQuote = !inQuote;
+          } else if (c === ',' && !inQuote) {
+            cols.push(current);
+            current = '';
+          } else {
+            current += c;
+          }
+        }
+        cols.push(current);
+        
+        // Clean up quotes
+        cols = cols.map(col => col.replace(/^"|"$/g, '').trim());
+        
+        if (cols.length >= 4) {
+          const name = cols[1] || 'Anonymous';
+          const rating = parseInt(cols[2]) || 5;
+          const review = cols[3] || '';
+          const date = cols[0] ? cols[0].split(' ')[0] : '';
+          
+          if (review && review.length > 0) {
+            reviews.push({ name, rating, review, date });
+          }
+        }
+      }
+    }
+    
+    if (reviews.length === 0) {
+      container.innerHTML = '<div class="text-center text-gray-400 col-span-2">📭 No reviews yet. Be the first!</div>';
+      return;
+    }
+    
+    // Show newest first (reverse order)
+    reviews.reverse();
+    
+    container.innerHTML = reviews.map(review => `
+      <div class="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition">
+        <div class="flex items-center justify-between mb-3">
+          <div class="text-amber-400 text-lg">
+            ${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}
+          </div>
+          <span class="text-gray-500 text-xs">${review.date || 'Recently'}</span>
+        </div>
+        <p class="text-white font-semibold mb-2">${escapeHtml(review.name)}</p>
+        <p class="text-gray-300 text-sm leading-relaxed">"${escapeHtml(review.review)}"</p>
+      </div>
+    `).join('');
+    
+  } catch (error) {
+    console.error('Error:', error);
+    container.innerHTML = `
+      <div class="text-center text-gray-400 col-span-2 bg-gray-800 p-8 rounded-2xl">
+        <p class="mb-2">⚠️ Unable to load reviews.</p>
+        <p class="text-xs">Please make sure your Google Sheet is published: File → Share → Publish to web</p>
+      </div>
+    `;
+  }
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// Load reviews when page loads
+loadReviews();
+</script>
 
 </body>
 </html>
