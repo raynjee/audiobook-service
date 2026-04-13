@@ -6,94 +6,185 @@
   <title>EPUB to Audiobook</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-50 text-gray-900">
 
-  <!-- Hero Section -->
-  <section class="text-center py-16 px-4">
-    <h1 class="text-4xl font-bold mb-4">Turn Your EPUB into a Premium Audiobook 🎧</h1>
-    <p class="text-lg text-gray-600 mb-6">Fast, high-quality AI narration delivered in MP3 format.</p>
-    <a href="#quote" class="bg-black text-white px-6 py-3 rounded-2xl shadow-lg hover:opacity-90">Get Instant Quote</a>
-  </section>
+<!-- HERO -->
+<section class="text-center py-16 px-4">
+  <h1 class="text-4xl font-bold mb-4">Turn Your EPUB into a Premium Audiobook 🎧</h1>
+  <p class="text-lg text-gray-600 mb-4">
+    Fast, high-quality AI narration delivered in MP3 format.
+  </p>
 
-  <!-- Features -->
-  <section class="grid md:grid-cols-3 gap-6 px-6 max-w-5xl mx-auto mb-16">
+  <a href="https://ko-fi.com/YOURUSERNAME" target="_blank"
+  class="bg-black text-white px-8 py-4 rounded-2xl shadow-lg text-lg hover:scale-105 transition">
+    🎧 Order Your Audiobook Now
+  </a>
+
+  <p class="text-sm text-gray-500 mt-2">
+    Secure payment via Ko-fi ☕
+  </p>
+</section>
+
+<!-- FEATURES -->
+<section class="grid md:grid-cols-3 gap-6 px-6 max-w-5xl mx-auto mb-16">
+  <div class="bg-white p-6 rounded-2xl shadow">
+    <h3 class="font-semibold text-xl mb-2">High-Quality Voices</h3>
+    <p class="text-gray-600">Natural sounding narration with clean audio output.</p>
+  </div>
+
+  <div class="bg-white p-6 rounded-2xl shadow">
+    <h3 class="font-semibold text-xl mb-2">Fast Delivery</h3>
+    <p class="text-gray-600">Quick turnaround depending on book length.</p>
+  </div>
+
+  <div class="bg-white p-6 rounded-2xl shadow">
+    <h3 class="font-semibold text-xl mb-2">Affordable Pricing</h3>
+    <p class="text-gray-600">Simple pricing with bonus audiobooks included.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="text-center mb-16">
+  <h2 class="text-3xl font-bold mb-8">Pricing</h2>
+
+  <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto px-6">
+
     <div class="bg-white p-6 rounded-2xl shadow">
-      <h3 class="font-semibold text-xl mb-2">High-Quality Voices</h3>
-      <p class="text-gray-600">Natural sounding narration with clean audio output.</p>
+      <h3 class="text-xl font-semibold">1–3 hrs</h3>
+      <p class="text-2xl font-bold my-2">$3</p>
     </div>
+
     <div class="bg-white p-6 rounded-2xl shadow">
-      <h3 class="font-semibold text-xl mb-2">Fast Delivery</h3>
-      <p class="text-gray-600">Get your audiobook quickly with efficient processing.</p>
+      <h3 class="text-xl font-semibold">4–8 hrs</h3>
+      <p class="text-2xl font-bold my-2">$6</p>
     </div>
-    <div class="bg-white p-6 rounded-2xl shadow">
-      <h3 class="font-semibold text-xl mb-2">Affordable Pricing</h3>
-      <p class="text-gray-600">Simple pricing with bonus audiobooks included.</p>
+
+    <div class="bg-white p-6 rounded-2xl shadow border-2 border-black">
+      <h3 class="text-xl font-semibold">9–15 hrs</h3>
+      <p class="text-2xl font-bold my-2">$10</p>
+      <p class="text-sm text-gray-600">+1 FREE ≤3hr audiobook 🎁</p>
     </div>
-  </section>
 
-  <!-- Pricing -->
-  <section class="text-center mb-16">
-    <h2 class="text-3xl font-bold mb-8">Pricing</h2>
-    <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto px-6">
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-xl font-semibold">1–3 hrs</h3>
-        <p class="text-2xl font-bold my-2">$3</p>
-      </div>
-      <div class="bg-white p-6 rounded-2xl shadow">
-        <h3 class="text-xl font-semibold">4–8 hrs</h3>
-        <p class="text-2xl font-bold my-2">$6</p>
-      </div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 border-black">
-        <h3 class="text-xl font-semibold">9–15 hrs</h3>
-        <p class="text-2xl font-bold my-2">$10</p>
-        <p class="text-sm text-gray-600">+1 FREE ≤3hr audiobook 🎁</p>
-      </div>
-      <div class="bg-white p-6 rounded-2xl shadow border-2 border-black">
-        <h3 class="text-xl font-semibold">16–25 hrs</h3>
-        <p class="text-2xl font-bold my-2">$15</p>
-        <p class="text-sm text-gray-600">+1 ≤8hr OR 2 ≤3hr audiobooks 🎁</p>
-      </div>
+    <div class="bg-white p-6 rounded-2xl shadow border-2 border-black">
+      <h3 class="text-xl font-semibold">16–25 hrs</h3>
+      <p class="text-2xl font-bold my-2">$15</p>
+      <p class="text-sm text-gray-600">+1 ≤8hr OR 2 ≤3hr audiobooks 🎁</p>
     </div>
-  </section>
 
-  <!-- Calculator -->
-  <section id="quote" class="text-center mb-16 px-4">
-    <h2 class="text-3xl font-bold mb-6">Instant Quote</h2>
-    <div class="bg-white p-8 rounded-2xl shadow max-w-md mx-auto">
-      <input type="number" id="pages" placeholder="Enter number of pages" class="w-full p-3 border rounded-lg mb-4">
-      <button onclick="calculate()" class="w-full bg-black text-white py-3 rounded-xl">Calculate</button>
-      <p id="result" class="mt-4 text-lg"></p>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Script -->
-  <script>
-    function calculate() {
-      let pages = document.getElementById("pages").value;
-      let hours = pages / 30;
-      let price = 0;
-      let bonus = "";
+<!-- CALCULATOR -->
+<section class="text-center mb-16 px-4">
+  <h2 class="text-3xl font-bold mb-6">Instant Quote</h2>
 
-      if (hours <= 3) price = 3;
-      else if (hours <= 8) price = 6;
-      else if (hours <= 15) {
-        price = 10;
-        bonus = " + 1 FREE ≤3hr audiobook";
-      }
-      else if (hours <= 25) {
-        price = 15;
-        bonus = " + 1 ≤8hr OR 2 ≤3hr audiobooks";
-      }
-      else {
-        document.getElementById("result").innerHTML = "❌ Book too long (max 25 hrs)";
-        return;
-      }
+  <div class="bg-white p-8 rounded-2xl shadow max-w-md mx-auto">
+    <input type="number" id="pages" placeholder="Enter number of pages"
+    class="w-full p-3 border rounded-lg mb-4">
 
-      document.getElementById("result").innerHTML =
-        "Estimated Hours: " + hours.toFixed(1) +
-        "<br>Price: $" + price + bonus;
-    }
-  </script>
+    <button onclick="calculate()"
+    class="w-full bg-black text-white py-3 rounded-xl">
+      Calculate
+    </button>
+
+    <p id="result" class="mt-4 text-lg"></p>
+  </div>
+</section>
+
+<!-- SAMPLE AUDIO -->
+<section class="text-center mb-16">
+  <h2 class="text-3xl font-bold mb-6">Sample Audio</h2>
+
+  <audio controls>
+    <source src="YOUR_AUDIO_LINK.mp3" type="audio/mpeg">
+  </audio>
+</section>
+
+<!-- ABOUT -->
+<section class="max-w-4xl mx-auto px-6 mb-16 text-center">
+  <h2 class="text-3xl font-bold mb-4">About This Service</h2>
+
+  <p class="text-gray-600 leading-relaxed">
+    I provide high-quality audiobook conversions using advanced AI voices to turn your EPUBs into clean, natural-sounding MP3 audiobooks.
+    <br><br>
+    Perfect for students, readers, and anyone who prefers listening over reading.
+    <br><br>
+    Every order is handled carefully to ensure clear audio and smooth narration.
+  </p>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="bg-white py-12 px-6 rounded-2xl shadow max-w-4xl mx-auto mb-16">
+  <h2 class="text-3xl font-bold text-center mb-6">How to Order</h2>
+
+  <div class="text-gray-700 space-y-4">
+
+    <p><strong>Step 1:</strong> Use the calculator above to estimate your price.</p>
+
+    <p><strong>Step 2:</strong> Click "Order Now" and send payment through Ko-fi.</p>
+
+    <p><strong>Step 3:</strong> After payment, include:</p>
+
+    <ul class="list-disc list-inside ml-4">
+      <li>Book title</li>
+      <li>Number of pages</li>
+      <li>EPUB file or link</li>
+      <li>Voice preference (optional)</li>
+    </ul>
+
+    <p><strong>Step 4:</strong> I will confirm and start your order.</p>
+
+    <p class="mt-4"><strong>Delivery Time:</strong><br>
+      Short books: 1 day<br>
+      Longer books: 1–3 days
+    </p>
+
+    <p class="mt-4 text-sm text-gray-500">
+      Free bonus audiobooks (if eligible) are delivered after the main order.
+    </p>
+
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="text-center py-12">
+  <h2 class="text-2xl font-bold mb-4">Ready to get started?</h2>
+
+  <a href="https://ko-fi.com/YOURUSERNAME" target="_blank"
+  class="bg-black text-white px-6 py-3 rounded-xl">
+    Order Now
+  </a>
+</section>
+
+<!-- SCRIPT -->
+<script>
+function calculate() {
+  let pages = document.getElementById("pages").value;
+  let hours = pages / 30;
+  let price = 0;
+  let bonus = "";
+
+  if (hours <= 3) price = 3;
+  else if (hours <= 8) price = 6;
+  else if (hours <= 15) {
+    price = 10;
+    bonus = " + 1 FREE ≤3hr audiobook";
+  }
+  else if (hours <= 25) {
+    price = 15;
+    bonus = " + 1 ≤8hr OR 2 ≤3hr audiobooks";
+  }
+  else {
+    document.getElementById("result").innerHTML = "❌ Book too long (max 25 hrs)";
+    return;
+  }
+
+  document.getElementById("result").innerHTML =
+    "Estimated Hours: " + hours.toFixed(1) +
+    "<br>Price: $" + price + bonus;
+}
+</script>
 
 </body>
 </html>
