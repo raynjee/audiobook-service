@@ -63,35 +63,39 @@
 </section>
 
 <!-- PRICING -->
-<!-- PRICING -->
 <section class="text-center mb-16">
   <h2 class="text-3xl font-bold mb-8">Pricing</h2>
 
   <div class="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto px-6">
 
+    <!-- Tier 1: 1–5 hrs -->
     <div class="bg-white p-6 rounded-2xl shadow">
       <h3 class="text-xl font-semibold">1–5 hrs</h3>
       <p class="text-2xl font-bold my-2">$3</p>
       <p class="text-sm text-gray-500">up to ~200 pages</p>
     </div>
 
-    <div class="bg-white p-6 rounded-2xl shadow">
+    <!-- Tier 2: 6–8 hrs (NOW WITH BONUS) -->
+    <div class="bg-white p-6 rounded-2xl shadow border-2 border-black">
       <h3 class="text-xl font-semibold">6–8 hrs</h3>
       <p class="text-2xl font-bold my-2">$6</p>
+      <p class="text-sm text-gray-600">+1 FREE ~3hr audiobook 🎁</p>
       <p class="text-sm text-gray-500">~240–320 pages</p>
     </div>
 
+    <!-- Tier 3: 9–15 hrs -->
     <div class="bg-white p-6 rounded-2xl shadow border-2 border-black">
       <h3 class="text-xl font-semibold">9–15 hrs</h3>
       <p class="text-2xl font-bold my-2">$10</p>
-      <p class="text-sm text-gray-600">+1 FREE ≤3hr audiobook 🎁</p>
+      <p class="text-sm text-gray-600">+1 ~8hr <strong>OR</strong> +2 ~3hr audiobooks 🎁</p>
       <p class="text-sm text-gray-500">~360–600 pages</p>
     </div>
 
+    <!-- Tier 4: 16–25 hrs -->
     <div class="bg-white p-6 rounded-2xl shadow border-2 border-black">
       <h3 class="text-xl font-semibold">16–25 hrs</h3>
       <p class="text-2xl font-bold my-2">$15</p>
-      <p class="text-sm text-gray-600">+1 ≤8hr OR 2 ≤3hr audiobooks 🎁</p>
+      <p class="text-sm text-gray-600">+1 ~8hr <strong>AND</strong> +2 ~3hr audiobooks 🎁</p>
       <p class="text-sm text-gray-500">~640–1000 pages</p>
     </div>
 
@@ -227,31 +231,31 @@
 function calculate() {
   let pages = document.getElementById("pages").value;
   
-  // Check if input is empty or not a number
   if (!pages || pages <= 0) {
     document.getElementById("result").innerHTML = "❌ Please enter a valid number of pages.";
     return;
   }
   
   pages = parseFloat(pages);
-  let hours = pages / 40;  // 40 pages = 1 hour
+  let hours = pages / 40;
   let price = 0;
   let bonus = "";
 
-  // Updated pricing tiers
   if (hours <= 5) {
-    price = 3;  // 1–5 hours
+    price = 3;
+    bonus = "";  // No bonus for 1–5 hrs
   }
   else if (hours <= 8) {
-    price = 6;  // 6–8 hours
+    price = 6;
+    bonus = " + 1 FREE ~3hr audiobook 🎁";  // NEW bonus for 6–8 hrs
   }
   else if (hours <= 15) {
-    price = 10;  // 9–15 hours
-    bonus = " + 1 FREE ≤3hr audiobook 🎁";
+    price = 10;
+    bonus = " + 1 ~8hr OR 2 ~3hr audiobooks 🎁";
   }
   else if (hours <= 25) {
-    price = 15;  // 16–25 hours
-    bonus = " + 1 ≤8hr OR 2 ≤3hr audiobooks 🎁";
+    price = 15;
+    bonus = " + 1 ~8hr AND 2 ~3hr audiobooks 🎁";
   }
   else {
     document.getElementById("result").innerHTML = "❌ Book too long (max 25 hrs / 1000 pages)";
